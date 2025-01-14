@@ -53,6 +53,7 @@ const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
 
         <div className="flex flex-col gap-2 items-center justify-center w-full">
           <button
+            onClick={() => setUnopened(4)}
             className={cn(
               rem.className,
               "ty-title leading-[120%] p-3",
