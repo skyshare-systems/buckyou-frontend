@@ -10,7 +10,7 @@
     @apply font-medium text-[10.24px] leading-[100%];
   }
   .ty-subtitle {
-    @apply font-semibold text-[12.80px] leading-[100%];
+    @apply font-normal text-[12.80px] leading-[100%];
   }
   .ty-descriptions {
     @apply font-normal text-[14px] leading-[100%];
