@@ -38,8 +38,8 @@ const BuckYouTextIcon = () => {
         fill="url(#paint0_linear_190_676)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M45.7794 22.8956C50.3311 24.1152 54.5895 24.444 57.5268 23.9652C58.1 23.0599 58.5442 22.0621 58.832 20.9882C60.4639 14.8977 56.5144 8.41214 49.8074 6.61502C43.1005 4.8179 36.4373 8.45975 34.8053 14.5503C34.5522 15.4948 34.4334 16.4487 34.4382 17.3932C36.6261 19.4635 40.781 21.5563 45.7794 22.8956ZM40.1219 18.1685C37.355 17.4271 37.8633 15.2894 38.269 14.016C38.8405 12.2222 39.8543 10.8207 42.2524 10.2494C42.4629 10.1992 42.6814 10.1837 42.8967 10.2044C43.3663 10.2496 43.812 10.3355 44.2295 10.4597C45.9615 10.9753 45.0528 12.918 43.9431 14.3443C43.5346 14.8694 43.1935 15.539 42.8743 16.3986C42.8313 16.5142 42.7817 16.6284 42.724 16.7374C42.1846 17.7568 41.6933 18.5896 40.1219 18.1685ZM52.4931 21.7271C55.2599 22.4685 55.8886 20.363 56.1739 19.0573C56.5759 17.2182 56.3987 15.4975 54.6075 13.8037C54.4503 13.655 54.2689 13.5323 54.0721 13.4426C53.6428 13.2469 53.2138 13.0984 52.7901 12.9973C51.0324 12.5778 50.8481 14.7146 51.0959 16.5046C51.1871 17.1636 51.1478 17.9141 50.9944 18.8181C50.9738 18.9397 50.9597 19.0634 50.9552 19.1867C50.9126 20.3391 50.9216 21.306 52.4931 21.7271ZM48.4427 18.9224L47.1538 19.6196C46.6173 19.9097 45.9477 19.731 45.6271 19.2122L44.855 17.9628C44.3072 17.0763 45.1255 15.9763 46.1321 16.246L48.1931 16.7982C49.1985 17.0676 49.3583 18.4272 48.4427 18.9224Z"
         fill="url(#paint1_linear_190_676)"
       />
@@ -60,8 +60,8 @@ const BuckYouTextIcon = () => {
           y2="48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFE68F" />
-          <stop offset="1" stop-color="#FFD232" />
+          <stop stopColor="#FFE68F" />
+          <stop offset="1" stopColor="#FFD232" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_190_676"
@@ -71,8 +71,8 @@ const BuckYouTextIcon = () => {
           y2="48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFE68F" />
-          <stop offset="1" stop-color="#FFD232" />
+          <stop stopColor="#FFE68F" />
+          <stop offset="1" stopColor="#FFD232" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_190_676"
@@ -82,8 +82,8 @@ const BuckYouTextIcon = () => {
           y2="48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFE68F" />
-          <stop offset="1" stop-color="#FFD232" />
+          <stop stopColor="#FFE68F" />
+          <stop offset="1" stopColor="#FFD232" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_190_676"
@@ -93,8 +93,8 @@ const BuckYouTextIcon = () => {
           y2="48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFE68F" />
-          <stop offset="1" stop-color="#FFD232" />
+          <stop stopColor="#FFE68F" />
+          <stop offset="1" stopColor="#FFD232" />
         </linearGradient>
       </defs>
     </svg>

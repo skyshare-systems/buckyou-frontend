@@ -16,14 +16,14 @@ const HelpSquareIcon = () => {
       <path
         d="M6.6665 5.99999C6.6665 5.26361 7.26344 4.66666 7.99984 4.66666C8.73624 4.66666 9.33317 5.26361 9.33317 5.99999C9.33317 6.26542 9.25564 6.51274 9.1219 6.72052C8.72344 7.33979 7.99984 7.93026 7.99984 8.66666V8.99999"
         stroke="white"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M7.99463 11.3333H8.00063"
         stroke="white"
-        stroke-width="1.33333"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.33333"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
