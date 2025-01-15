@@ -39,7 +39,7 @@ const Navbar = () => {
     <>
       <GameRules isOpen={isShowGameRules} setIsOpen={setIsShowGameRules} />
       <HelloThereOg isOpen={isOpen} setIsOpen={setIsOpen} />
-      <div className="fixed top-0 left-0 flex justify-center items-center px-4 lg:px-2 py-7 z-[9999] w-full">
+      <div className="backdrop-blur fixed top-0 left-0 flex justify-center items-center px-4 lg:px-2 py-7 z-[9999] w-full">
         <div className="flex flex-row justify-between items-center max-w-[1440px] grow">
           <BuckYouTextIcon />
           <div className="hidden lg:flex flex-wrap gap-4 items-center">
