@@ -137,7 +137,23 @@ const BuyEnvelopes = () => {
   ];
 
   return (
-    <div className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[582px] sm:min-w-[320px] w-full sm:max-w-[320px] relative bg-white-4 border border-yellow-100 rounded-2xl p-8">
+    <div className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[582px] sm:min-w-[320px] w-full sm:max-w-[320px] relative bg-white-4 overflow-hidden border border-yellow-100 rounded-2xl p-8">
+      <Image
+        src={"/assets/sui-envelopes.png"}
+        alt={"envelope"}
+        height={426}
+        width={426}
+        unoptimized
+        className="absolute top-0 right-0 z-[2]"
+      />
+      <Image
+        src={"/assets/sui-envelopes.png"}
+        alt={"envelope"}
+        height={426}
+        width={426}
+        unoptimized
+        className="absolute top-0 right-0 blur-3xl"
+      />
       <div className="flex flex-col gap-8 justify-between items-start grow w-full">
         <div className="flex flex-col gap-8 w-full">
           <div className="flex flex-col gap-2 items-start max-w-[133px] w-full">
