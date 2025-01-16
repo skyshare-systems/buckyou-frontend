@@ -58,7 +58,7 @@ const Navbar = () => {
               <div className="flex flex-wrap items-center gap-4">
                 {socmed.map((data, index) => {
                   return (
-                    <a href={data.link} key={index}>
+                    <a href={data.link} target="_blank" key={index}>
                       {data.icon}
                     </a>
                   );

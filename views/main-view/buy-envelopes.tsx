@@ -203,15 +203,8 @@ const BuyEnvelopes = () => {
               <IOSSwitch
                 onChange={() => setIsCheck(!isCheck)}
                 checked={isCheck}
-                className={cn(
-                  "z-[2]"
-                  // `${
-                  //   !isBuy || referralCode === ""
-                  //     ? "cursor-not-allowed"
-                  //     : "cursor-pointer"
-                  // }`
-                )}
-                disabled={isBuy}
+                className={cn("z-[2]")}
+                disabled={isBuy !== 0}
               />
               <h1
                 className={cn(rem.className, "text-white-50 ty-descriptions")}
@@ -232,10 +225,10 @@ const BuyEnvelopes = () => {
 
                 <div className="rounded-lg border border-white-16 bg-white-4 backdrop-blur p-4">
                   <Input
-                    placeholder="Type"
+                    placeholder="Code"
                     onChange={handleChangeReferrer}
                     value={referralCodeText}
-                    disabled={isBuy}
+                    disabled={isBuy !== 0}
                   />
                 </div>
               </div>
@@ -397,7 +390,7 @@ const BuyEnvelopes = () => {
                 </div>
               </div>
               <button
-                onClick={() => setIsBuy(true)}
+                onClick={() => setIsBuy(isBuy + 1)}
                 className={cn(
                   rem.className,
                   "ty-title leading-[120%] p-3",
@@ -417,7 +410,7 @@ const BuyEnvelopes = () => {
                 >
                   ~426.74 USD
                 </h1>
-                {isBuy && (
+                {isBuy !== 0 && (
                   <h1
                     className={cn(
                       rem.className,

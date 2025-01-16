@@ -3,15 +3,15 @@ import { create } from "zustand";
 
 // Define the Zustand store state
 export interface BuyEnvelopeState {
-  isBuy: boolean;
-  setIsBuy: (isBuy: boolean) => void;
+  isBuy: number;
+  setIsBuy: (isBuy: number) => void;
 }
 
 // Create the Zustand store with persistence
 export const useBuyEnvelope = create<BuyEnvelopeState>()(
   // persist(
   (set) => ({
-    isBuy: false,
+    isBuy: 0,
     setIsBuy: (isBuy) => set({ isBuy }),
   })
   //   {

@@ -175,7 +175,7 @@ const ReferFriends = () => {
           </div>
         )}
       </div>
-      {!isBuy && (
+      {isBuy === 0 && (
         <div className="absolute top-[8.4rem] sm:top-[9.5rem] left-0 min-h-[377px] w-full backdrop-blur flex justify-center items-center">
           <div className="flex flex-col gap-2 justify-center items-center max-w-[252px]">
             <Image

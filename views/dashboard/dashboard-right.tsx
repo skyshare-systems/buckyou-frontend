@@ -1,7 +1,9 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { phudu, rem } from "@/public/fonts";
 import React from "react";
 import Image from "next/image";
+import CountdownTimer from "@/components/countdown-timer";
 
 const DashboardRight = () => {
   return (
@@ -24,14 +26,8 @@ const DashboardRight = () => {
           <h1 className={cn(rem.className, "ty-descriptions text-white-50")}>
             Remaining Time
           </h1>
-          <h1
-            className={cn(
-              phudu.className,
-              "text-[64px] font-bold text-white-100 leading-[100%]"
-            )}
-          >
-            23:56:32
-          </h1>
+
+          <CountdownTimer />
         </div>
       </div>
       <Image
