@@ -96,11 +96,17 @@ export function BuyHistory() {
       </TableHeader>
       <TableBody>
         {history.map((data, index) => (
-          <TableRow key={index}>
-            <TableCell className="font-medium">{data.username}</TableCell>
-            <TableCell>{data.amount}</TableCell>
-            <TableCell>{data.time}</TableCell>
-            <TableCell className="text-right">
+          <TableRow key={index} className="group cursor-pointer">
+            <TableCell className="font-medium group-hover:text-yellow-100 ease-out duration-300">
+              {data.username}
+            </TableCell>
+            <TableCell className="font-medium group-hover:text-yellow-100 ease-out duration-300">
+              {data.amount}
+            </TableCell>
+            <TableCell className="font-medium group-hover:text-yellow-100 ease-out duration-300">
+              {data.time}
+            </TableCell>
+            <TableCell className="text-right opacity-50 group-hover:opacity-100 ease-out duration-300">
               <a href={data.link}>
                 <ArrowUpRight />
               </a>

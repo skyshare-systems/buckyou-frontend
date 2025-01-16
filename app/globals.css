@@ -163,3 +163,11 @@
 .checkbox:checked + .label .switch {
   right: 0px;
 }
+
+.body-background-buy {
+  background: radial-gradient(
+    99.99% 99.99% at 50% 50%,
+    #6c0009 20%,
+    #2a0222 100%
+  );
+}

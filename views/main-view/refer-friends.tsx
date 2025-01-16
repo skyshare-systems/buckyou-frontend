@@ -20,7 +20,7 @@ const ReferFriends = () => {
   const { isBuy, setIsBuy } = useBuyEnvelope((state) => state);
 
   function copyClipBoard() {
-    navigator.clipboard.writeText(referralCode);
+    navigator.clipboard.writeText(referralCode.toUpperCase());
     setIsCopy(true);
     const timerId = setTimeout(() => {
       setIsCopy(false);
@@ -31,7 +31,7 @@ const ReferFriends = () => {
 
   function handleChange(e: any) {
     const value = e.target.value;
-    setReferralCodeText(value);
+    setReferralCodeText(value.toUpperCase());
   }
   return (
     <div className=" flex flex-col justify-between items-start gap-8 min-h-[582px] sm:min-w-[320px] w-full sm:max-w-[320px] relative bg-white-4 border border-white-16 rounded-2xl p-8 self-stretch">
@@ -63,19 +63,24 @@ const ReferFriends = () => {
               <h1 className={cn(rem.className, "text-white-100 ty-subtitle")}>
                 Your Referral Code
               </h1>
-              <div className="flex items-center gap-1">
-                <UserIcon />
-                <h1 className={cn(rem.className, "ty-subtitle text-white-100")}>
-                  4
-                </h1>
-              </div>
+              {referralCode !== "" && (
+                <div className="flex items-center gap-1">
+                  <UserIcon />
+                  <h1
+                    className={cn(rem.className, "ty-subtitle text-white-100")}
+                  >
+                    4
+                  </h1>
+                </div>
+              )}
             </div>
             <div className="flex items-center justify-between gap-2 rounded-lg border border-white-16 bg-white-4 backdrop-blur p-4">
               <Input
                 placeholder="YOUR CODE"
                 value={referralCodeText}
                 onChange={handleChange}
-                // disabled={referralCode !== ""}
+                disabled={referralCode !== ""}
+                className="uppercase"
               />
               {referralCode !== "" && (
                 <>

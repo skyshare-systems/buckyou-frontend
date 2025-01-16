@@ -19,6 +19,7 @@ import ArrowDownIcon from "@/components/icon/arrow-down";
 import { useConnectWallet } from "@/lib/store/connect-wallet-store";
 import { useReferralCode } from "@/lib/store/referral-code-store";
 import { useBuyEnvelope } from "@/lib/store/buy-envelope-store";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -82,7 +83,7 @@ export const IOSSwitch = styled((props: SwitchProps) => (
 
 const BuyEnvelopes = () => {
   const [isCheck, setIsCheck] = useState(false);
-  const [quantity, setQuantity] = useState<number>(1);
+  const [quantity, setQuantity] = useState<any>(1);
   const [tokenPayment, setTokenPayment] = useState({
     tokenName: "SUI",
     tokenIcon: "/icons/token/SUI.png",
@@ -91,11 +92,6 @@ const BuyEnvelopes = () => {
   const { referralCode } = useReferralCode((state) => state);
 
   const { isBuy, setIsBuy } = useBuyEnvelope((state) => state);
-
-  function handleChange(e: any) {
-    const value = e.target.value;
-    setQuantity(value);
-  }
 
   const token = [
     {
@@ -136,14 +132,31 @@ const BuyEnvelopes = () => {
     },
   ];
 
-  useEffect(() => {
-    if (referralCode !== "") {
-      setIsCheck(!isCheck);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    // Regex to allow up to 5 whole digits, 1 decimal point, and up to 5 decimal places
+    const regex = /^\d{0,5}(\.\d{0,5})?$/;
+
+    // Validate the input against the regex pattern
+    if (regex.test(value)) {
+      // Remove leading zeros (e.g., '00123' => '123')
+      value = value.replace(/^0+(\d)/, "$1");
+
+      // Set the valid amount
+      setQuantity(value);
     }
-  }, [referralCode]);
+  };
+
+  const [referralCodeText, setReferralCodeText] = useState("");
+
+  function handleChangeReferrer(e: any) {
+    const value = e.target.value;
+    setReferralCodeText(value);
+  }
 
   return (
-    <div className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[582px] sm:min-w-[320px] w-full sm:max-w-[320px] relative bg-white-4 overflow-hidden border border-yellow-100 rounded-2xl p-8">
+    <HoverBorderGradient className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[600px] sm:min-w-[320px] w-full sm:max-w-[320px] relative  overflow-hidden  rounded-2xl p-8">
       <Image
         src={"/assets/sui-envelopes.png"}
         alt={"envelope"}
@@ -162,16 +175,21 @@ const BuyEnvelopes = () => {
       />
       <div className="flex flex-col gap-8 justify-between items-start grow w-full">
         <div className="flex flex-col gap-8 w-full">
-          <div className="flex flex-col gap-2 items-start max-w-[133px] w-full">
+          <div className="flex flex-col gap-2 items-start justify-start max-w-[133px] w-full ">
             <h1
               className={cn(
                 phudu.className,
-                "text-white-100 font-bold text-2xl"
+                "text-white-100 font-bold text-2xl text-left"
               )}
             >
               Buy Envelopes
             </h1>
-            <p className={cn(rem.className, "ty-subtitle leading-[120%]")}>
+            <p
+              className={cn(
+                rem.className,
+                "ty-subtitle leading-[120%] text-left"
+              )}
+            >
               <span className="text-white-50">
                 Each purchased envelope adds{" "}
               </span>
@@ -186,16 +204,15 @@ const BuyEnvelopes = () => {
                 onChange={() => setIsCheck(!isCheck)}
                 checked={isCheck}
                 className={cn(
-                  "z-[2]",
-                  `${
-                    !isBuy || referralCode === ""
-                      ? "cursor-not-allowed"
-                      : "cursor-pointer"
-                  }`
+                  "z-[2]"
+                  // `${
+                  //   !isBuy || referralCode === ""
+                  //     ? "cursor-not-allowed"
+                  //     : "cursor-pointer"
+                  // }`
                 )}
-                disabled={!isBuy || referralCode === ""}
+                disabled={isBuy}
               />
-              {/* <Switch onChange={() => setIsCheck(!isCheck)} checked={isCheck} /> */}
               <h1
                 className={cn(rem.className, "text-white-50 ty-descriptions")}
               >
@@ -203,13 +220,23 @@ const BuyEnvelopes = () => {
               </h1>
             </div>
             {isCheck && (
-              <div className="flex flex-col gap-2 p-2 rounded-2xl bg-white-4 backdrop-blur w-full">
-                <h1 className={cn(rem.className, "text-white-50 ty-subtitle")}>
+              <div className="flex flex-col gap-2 p-2 rounded-2xl bg-white-4 backdrop-blur w-full  z-[2]">
+                <h1
+                  className={cn(
+                    rem.className,
+                    "text-white-50 ty-subtitle text-left"
+                  )}
+                >
                   Referrer Code
                 </h1>
 
                 <div className="rounded-lg border border-white-16 bg-white-4 backdrop-blur p-4">
-                  <Input placeholder="" value={referralCode} readOnly />
+                  <Input
+                    placeholder="Type"
+                    onChange={handleChangeReferrer}
+                    value={referralCodeText}
+                    disabled={isBuy}
+                  />
                 </div>
               </div>
             )}
@@ -374,8 +401,8 @@ const BuyEnvelopes = () => {
                 className={cn(
                   rem.className,
                   "ty-title leading-[120%] p-3",
-                  "rounded-lg bg-white-4 text-white-100",
-                  "hover:bg-connect-wallet hover:text-black-100 ease-out duration-300 w-full"
+                  "rounded-lg text-black-100",
+                  "bg-connect-wallet ease-out duration-300 w-full hover:opacity-75"
                 )}
               >
                 Buy {quantity} Envelopes with {tokenPayment.tokenName}
@@ -390,7 +417,7 @@ const BuyEnvelopes = () => {
                 >
                   ~426.74 USD
                 </h1>
-                {referralCode !== "" && (
+                {isBuy && (
                   <h1
                     className={cn(
                       rem.className,
@@ -405,7 +432,7 @@ const BuyEnvelopes = () => {
           )}
         </div>
       </div>
-    </div>
+    </HoverBorderGradient>
   );
 };
 

@@ -1,7 +1,11 @@
 import React from "react";
-import BuyEnvelopes from "./buy-envelopes";
 import ReferFriends from "./refer-friends";
 import TableView from "./table-view";
+import dynamic from "next/dynamic";
+
+const BuyEnvelopes = dynamic(() => import("./buy-envelopes"), {
+  loading: () => <p>Loading...</p>,
+});
 
 const MainView = () => {
   return (
