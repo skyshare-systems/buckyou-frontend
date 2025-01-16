@@ -4,7 +4,7 @@
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { phudu, rem } from "@/public/fonts";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
@@ -136,6 +136,12 @@ const BuyEnvelopes = () => {
     },
   ];
 
+  useEffect(() => {
+    if (referralCode !== "") {
+      setIsCheck(!isCheck);
+    }
+  }, [referralCode]);
+
   return (
     <div className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[582px] sm:min-w-[320px] w-full sm:max-w-[320px] relative bg-white-4 overflow-hidden border border-yellow-100 rounded-2xl p-8">
       <Image
@@ -144,7 +150,7 @@ const BuyEnvelopes = () => {
         height={426}
         width={426}
         unoptimized
-        className="absolute top-0 right-0 z-[2]"
+        className="absolute top-0 right-0 z-[1]"
       />
       <Image
         src={"/assets/sui-envelopes.png"}
@@ -177,10 +183,17 @@ const BuyEnvelopes = () => {
           <div className="flex flex-col gap-3 items-start w-full">
             <div className="flex items-center space-x-2">
               <IOSSwitch
-                // sx={{ m: 1 }}
-                // onClick={() => setIsCheck(!isCheck)}
                 onChange={() => setIsCheck(!isCheck)}
                 checked={isCheck}
+                className={cn(
+                  "z-[2]",
+                  `${
+                    !isBuy || referralCode === ""
+                      ? "cursor-not-allowed"
+                      : "cursor-pointer"
+                  }`
+                )}
+                disabled={!isBuy || referralCode === ""}
               />
               {/* <Switch onChange={() => setIsCheck(!isCheck)} checked={isCheck} /> */}
               <h1
@@ -338,7 +351,7 @@ const BuyEnvelopes = () => {
                                 tokenIcon: data.image,
                               })
                             }
-                            className="leading-[120%] font-semibold text-center ty-title text-white-100 flex items-center gap-2"
+                            className="leading-[120%] font-semibold text-center ty-title text-white-100 hover:text-yellow-100 flex items-center gap-2 ease-out duration-300 cursor-pointer"
                           >
                             <Image
                               src={data.image}
@@ -377,14 +390,16 @@ const BuyEnvelopes = () => {
                 >
                   ~426.74 USD
                 </h1>
-                <h1
-                  className={cn(
-                    rem.className,
-                    "text-green-100 leading-[120%] ty-subtext"
-                  )}
-                >
-                  10% Discount Applied
-                </h1>
+                {referralCode !== "" && (
+                  <h1
+                    className={cn(
+                      rem.className,
+                      "text-green-100 leading-[120%] ty-subtext"
+                    )}
+                  >
+                    10% Discount Applied
+                  </h1>
+                )}
               </div>
             </div>
           )}

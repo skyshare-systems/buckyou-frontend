@@ -21,15 +21,18 @@ const TableView = () => {
   return (
     <div className="flex justify-center items-start rounded-2xl border border-white-16 bg-white-4 self-stretch grow">
       <div className="flex flex-col items-start min-h-[180px] grow self-stretch">
-        <div className="flex flex-col items-start min-h-[180px] grow self-stretch relative overflow-hidden">
-          <Image
-            src={"/assets/panda-ass.png"}
-            alt={"panda ass"}
-            height={143.625}
-            width={248.377}
-            className="absolute bottom-0 right-0 w-full max-w-[200px] z-[1] sm:opacity-100 opacity-50"
-            unoptimized
-          />
+        <div className="flex flex-col items-start min-h-[180px] grow self-stretch relative justify-between overflow-hidden">
+          <a href="https://www.bucketprotocol.io/" target="_blank">
+            <Image
+              src={"/assets/panda-ass.png"}
+              alt={"panda ass"}
+              height={143.625}
+              width={248.377}
+              className="absolute bottom-0 right-0 w-full max-w-[200px] z-[1] sm:opacity-100 opacity-50 hover:scale-105 ease-out duration-300 cursor-pointer"
+              unoptimized
+            />
+          </a>
+
           <div className="flex items-start p-8 min-h-[133px] z-[2]">
             <h1
               className={cn(
@@ -67,13 +70,13 @@ const TableView = () => {
         </div>
 
         {selectedTab === "Buy History" && (
-          <div className="bg-white-4 w-full grow self-stretch flex items-start p-6 max-h-[400px] overflow-auto">
+          <div className="bg-white-4 w-full grow self-stretch flex items-start  p-6 max-h-[400px] overflow-auto">
             <BuyHistory />
           </div>
         )}
 
         {selectedTab === "Leaderboard" && (
-          <div className="bg-white-4 w-full grow self-stretch flex items-start p-6 max-h-[400px] overflow-auto">
+          <div className="bg-white-4 w-full grow self-stretch flex items-start  p-6 max-h-[400px] overflow-auto">
             <Leaderboard />
           </div>
         )}
