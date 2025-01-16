@@ -181,7 +181,6 @@ const BuyEnvelopes = () => {
                 // onClick={() => setIsCheck(!isCheck)}
                 onChange={() => setIsCheck(!isCheck)}
                 checked={isCheck}
-                disabled={!isBuy}
               />
               {/* <Switch onChange={() => setIsCheck(!isCheck)} checked={isCheck} /> */}
               <h1
