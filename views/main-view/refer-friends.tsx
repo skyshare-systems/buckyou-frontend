@@ -12,12 +12,15 @@ import Rewards from "./rewards";
 import { useReferralCode } from "@/lib/store/referral-code-store";
 import { useBuyEnvelope } from "@/lib/store/buy-envelope-store";
 import Image from "next/image";
+import LockIcon from "@/components/icon/lock";
 
 const ReferFriends = () => {
   const [isCopy, setIsCopy] = useState(false);
   const { referralCode, setReferralCode } = useReferralCode((state) => state);
   const [referralCodeText, setReferralCodeText] = useState("");
   const { isBuy, setIsBuy } = useBuyEnvelope((state) => state);
+
+  const [isClaim, setIsClaim] = useState(false);
 
   function copyClipBoard() {
     navigator.clipboard.writeText(referralCode.toUpperCase());
@@ -152,14 +155,21 @@ const ReferFriends = () => {
               >
                 Reward Rebuy
               </button>
+
               <button
                 className={cn(
                   rem.className,
                   "ty-title leading-[120%] p-3",
-                  "rounded-lg bg-transparent text-white-100",
-                  "hover:bg-connect-wallet hover:text-black-100 ease-out duration-300 w-full"
+                  "rounded-lg bg-transparent text-white-50",
+                  "flex items-center gap-2 justify-center  ease-out duration-300 w-full",
+                  `${
+                    isClaim
+                      ? "cursor-pointer hover:bg-connect-wallet hover:text-black-100 text-white-100"
+                      : "cursor-not-allowed"
+                  }`
                 )}
               >
+                {!isClaim && <LockIcon />}
                 Claim All
               </button>
 
