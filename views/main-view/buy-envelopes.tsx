@@ -204,7 +204,7 @@ const BuyEnvelopes = () => {
                 onChange={() => setIsCheck(!isCheck)}
                 checked={isCheck}
                 className={cn("z-[2]")}
-                disabled={isBuy !== 0}
+                // disabled={isBuy !== 0}
               />
               <h1
                 className={cn(rem.className, "text-white-50 ty-descriptions")}
