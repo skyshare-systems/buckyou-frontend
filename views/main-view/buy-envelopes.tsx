@@ -163,7 +163,7 @@ const BuyEnvelopes = () => {
         height={426}
         width={426}
         unoptimized
-        className="absolute top-0 right-0 z-[1]"
+        className="absolute top-0 right-0 z-[2]"
       />
       <Image
         src={"/assets/sui-envelopes.png"}
@@ -171,7 +171,7 @@ const BuyEnvelopes = () => {
         height={426}
         width={426}
         unoptimized
-        className="absolute top-0 right-0 blur-3xl"
+        className="absolute top-0 right-0 blur-3xl z-[1]"
       />
       <div className="flex flex-col gap-8 justify-between items-start grow w-full">
         <div className="flex flex-col gap-8 w-full">
@@ -198,13 +198,13 @@ const BuyEnvelopes = () => {
               <span className="text-white-50">to the timer</span>
             </p>
           </div>
-          <div className="flex flex-col gap-3 items-start w-full">
+          <div className="flex flex-col gap-3 items-start w-full z-[6] bg-white-100">
             <div className="flex items-center space-x-2">
               <IOSSwitch
                 onChange={() => setIsCheck(!isCheck)}
                 checked={isCheck}
                 className={cn("z-[2]")}
-                // disabled={isBuy !== 0}
+                disabled={isBuy !== 0}
               />
               <h1
                 className={cn(rem.className, "text-white-50 ty-descriptions")}

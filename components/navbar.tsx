@@ -5,7 +5,6 @@ import BuckYouTextIcon from "./icon/buckyou-text";
 import HelpSquareIcon from "./icon/help-square";
 import { cn } from "@/lib/utils";
 import { rem } from "@/public/fonts";
-import ArrowDownIcon from "./icon/arrow-down";
 import TelegramIcon from "./icon/socmed/telegram";
 import TwitterIcon from "./icon/socmed/twitter";
 import HelloThereOg from "./hello-there-og";
@@ -79,7 +78,7 @@ const Navbar = () => {
                 </h1>
               </button>
             </div>
-            <button className="rounded-lg bg-white-8 py-2 px-3 flex items-center gap-2">
+            {/* <button className="rounded-lg bg-white-8 py-2 px-3 flex items-center gap-2">
               <h1
                 className={cn(
                   rem.className,
@@ -89,7 +88,7 @@ const Navbar = () => {
                 English
               </h1>
               <ArrowDownIcon />
-            </button>
+            </button> */}
             {!isConnected ? (
               <button
                 onClick={() => setIsConnected(!isConnected)}
