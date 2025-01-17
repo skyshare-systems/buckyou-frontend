@@ -198,7 +198,7 @@ const BuyEnvelopes = () => {
               <span className="text-white-50">to the timer</span>
             </p>
           </div>
-          <div className="flex flex-col gap-3 items-start w-full z-[6] bg-white-100">
+          <div className="flex flex-col gap-3 items-start w-full z-[6]">
             <div className="flex items-center space-x-2">
               <IOSSwitch
                 onChange={() => setIsCheck(!isCheck)}
