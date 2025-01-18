@@ -98,6 +98,21 @@ const Navbar = () => {
                   Migrate
                 </h1>
               </button>
+              {/* 
+              <button
+                className={cn(
+                  "bg-[#CF303E] flex items-center gap-2 hover:opacity-75 ease-out duration-300"
+                )}
+              >
+                <h1
+                  className={cn(
+                    rem.className,
+                    "ty-title text-white-100 font-medium"
+                  )}
+                >
+                  Claim
+                </h1>
+              </button> */}
 
               <Button
                 borderRadius="999rem"

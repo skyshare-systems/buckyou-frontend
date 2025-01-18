@@ -9,11 +9,18 @@ const BuyEnvelopes = dynamic(() => import("./buy-envelopes"), {
 
 const MainView = () => {
   return (
-    <div className="flex flex-col sm:flex-row md:flex-row gap-2  items-center lg:items-start justify-center lg:justify-between max-w-[512px] sm:max-w-full w-full">
-      <BuyEnvelopes />
-      <TableView />
-      <ReferFriends />
-    </div>
+    <>
+      <div className="hidden lg:flex flex-col  lg:flex-row gap-2  items-center lg:items-start justify-center lg:justify-between max-w-[512px] sm:max-w-full w-full px-4">
+        <BuyEnvelopes />
+        <TableView />
+        <ReferFriends />
+      </div>
+      <div className="lg:hidden flex flex-wrap gap-2  items-center lg:items-start justify-center lg:justify-between max-w-[512px] sm:max-w-full w-full px-4">
+        <BuyEnvelopes />
+        <ReferFriends />
+        <TableView />
+      </div>
+    </>
   );
 };
 

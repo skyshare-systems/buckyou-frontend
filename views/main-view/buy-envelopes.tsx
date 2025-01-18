@@ -156,7 +156,7 @@ const BuyEnvelopes = () => {
   }
 
   return (
-    <HoverBorderGradient className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[600px] sm:min-w-[320px] w-full sm:max-w-[320px] relative  overflow-hidden  rounded-2xl p-8">
+    <HoverBorderGradient className="self-stretch flex flex-col lg:justify-between items-start gap-8 min-h-[600px] w-full min-w-[320px] md:max-w-[320px] relative  overflow-hidden  rounded-2xl p-8 ">
       <Image
         src={"/assets/sui-envelopes.png"}
         alt={"envelope"}

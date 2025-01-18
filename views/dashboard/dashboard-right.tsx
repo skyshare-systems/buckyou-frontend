@@ -16,7 +16,7 @@ const DashboardRight = () => {
           <h1
             className={cn(
               phudu.className,
-              "text-[64px] font-bold text-white-100 leading-[100%]"
+              "text-2xl md:text-[64px] font-bold text-white-100 leading-[100%]"
             )}
           >
             $14,010
