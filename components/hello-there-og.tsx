@@ -5,13 +5,19 @@ import { phudu, rem } from "@/public/fonts";
 
 interface IModal {
   isOpen: boolean;
+  migrate: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
+const HelloThereOg = ({ isOpen, migrate, setIsOpen }: IModal) => {
   const [unopened, setUnopened] = useState(4);
   const [tab, setTab] = useState(1);
+
+  function handleClose() {
+    setTab(1);
+    setIsOpen(false);
+  }
 
   if (!isOpen) return null;
   return (
@@ -60,9 +66,9 @@ const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
                   onClick={() => setUnopened(4)}
                   className={cn(
                     rem.className,
-                    "ty-title leading-[120%] p-3",
-                    "rounded-lg bg-white-4 text-white-100",
-                    "hover:bg-connect-wallet hover:text-black-100 ease-out duration-300 w-full"
+                    "ty-title leading-[120%] p-3 rounded-lg",
+
+                    "bg-connect-wallet text-black-100 ease-out duration-300 w-full hover:opacity-75"
                   )}
                 >
                   Migrate to new envelope
@@ -92,7 +98,7 @@ const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
             </>
           )}
 
-          {tab === 2 && (
+          {tab === 2 && migrate === false && (
             <>
               <div className="flex flex-col justify-center items-center gap-2">
                 <h1
@@ -130,9 +136,8 @@ const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
                   onClick={() => setUnopened(4)}
                   className={cn(
                     rem.className,
-                    "ty-title leading-[120%] p-3",
-                    "rounded-lg bg-white-4 text-white-100",
-                    "hover:bg-connect-wallet hover:text-black-100 ease-out duration-300 w-full"
+                    "ty-title leading-[120%] p-3 rounded-lg ",
+                    "bg-connect-wallet text-black-100 ease-out duration-300 w-full hover:opacity-75"
                   )}
                 >
                   Claim Free Envelopes
@@ -149,7 +154,7 @@ const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
                     </span>
                   </p>
                   <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={handleClose}
                     className={cn(
                       rem.className,
                       "ty-subtitle text-red-100 border-b border-red-100 hover:opacity-50 duration-300 ease-out"
@@ -163,26 +168,32 @@ const HelloThereOg = ({ isOpen, setIsOpen }: IModal) => {
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => setTab(1)}
-            className={cn(
-              "w-[32px] h-[8px] rounded-full duration-300 ease-out",
-              `${
-                tab === 1 ? "bg-yellow-100" : "bg-white-16 hover:bg-yellow-100"
-              }`
-            )}
-          />
-          <button
-            onClick={() => setTab(2)}
-            className={cn(
-              "w-[32px] h-[8px] rounded-full duration-300 ease-out",
-              `${
-                tab === 2 ? "bg-yellow-100" : "bg-white-16 hover:bg-yellow-100"
-              }`
-            )}
-          />
-        </div>
+        {!migrate && (
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setTab(1)}
+              className={cn(
+                "w-[32px] h-[8px] rounded-full duration-300 ease-out",
+                `${
+                  tab === 1
+                    ? "bg-yellow-100"
+                    : "bg-white-16 hover:bg-yellow-100"
+                }`
+              )}
+            />
+            <button
+              onClick={() => setTab(2)}
+              className={cn(
+                "w-[32px] h-[8px] rounded-full duration-300 ease-out",
+                `${
+                  tab === 2
+                    ? "bg-yellow-100"
+                    : "bg-white-16 hover:bg-yellow-100"
+                }`
+              )}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

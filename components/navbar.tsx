@@ -28,6 +28,9 @@ const Navbar = () => {
   const { isConnected, setIsConnected } = useConnectWallet((state) => state);
   const [isOpen, setIsOpen] = useState(false);
   const [isShowGameRules, setIsShowGameRules] = useState(false);
+  const [isOG, setIsOG] = useState(false);
+
+  const [migrate, setIsMigrate] = useState(false);
 
   const socmed = [
     {
@@ -42,6 +45,11 @@ const Navbar = () => {
     },
   ];
 
+  function handleMigrate() {
+    setIsOpen(!isOpen);
+    setIsMigrate(true);
+  }
+
   useEffect(() => {
     if (isConnected) {
       setIsOpen(true);
@@ -51,8 +59,8 @@ const Navbar = () => {
   return (
     <>
       <GameRules isOpen={isShowGameRules} setIsOpen={setIsShowGameRules} />
-      <HelloThereOg isOpen={isOpen} setIsOpen={setIsOpen} />
-      {/* <WeKnowYoureOg isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+      <HelloThereOg isOpen={isOpen} setIsOpen={setIsOpen} migrate={migrate} />
+      <WeKnowYoureOg isOpen={isOG} setIsOpen={setIsOG} />
       <div className="backdrop-blur fixed top-0 left-0 flex justify-center items-center px-4 lg:px-2 py-7 z-[9999] w-full">
         <div className="flex flex-row justify-between items-center max-w-[1440px] grow">
           <a href="/">
@@ -85,7 +93,7 @@ const Navbar = () => {
               </button>
 
               <button
-                // onClick={() => setIsShowGameRules(!isShowGameRules)}
+                onClick={() => handleMigrate()}
                 className="flex flex-wrap items-center gap-2 py-2 px-3"
               >
                 <MigrateIcon />
@@ -115,9 +123,10 @@ const Navbar = () => {
               </button> */}
 
               <Button
+                onClick={() => setIsOpen(!isOpen)}
                 borderRadius="999rem"
                 className={cn(
-                  "bg-[#CF303E] flex items-center gap-2 hover:opacity-75 ease-out duration-300"
+                  "bg-[#CF303E] flex items-center gap-2 hover:bg-[#6C0009] ease-out duration-300"
                 )}
               >
                 <GiftIcon />

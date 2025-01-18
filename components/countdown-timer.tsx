@@ -76,7 +76,11 @@ const CountdownTimer = () => {
           "text-2xl md:text-[64px] font-bold text-white-100 leading-[100%]"
         )}
       >
-        {timeLeft.days}:{timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}
+        {timeLeft.days <= 9 ? "0" : ""}
+        {timeLeft.days}:{timeLeft.hours <= 9 ? "0" : ""}
+        {timeLeft.hours}:{timeLeft.minutes <= 9 ? "0" : ""}
+        {timeLeft.minutes}:{timeLeft.seconds <= 9 ? "0" : ""}
+        {timeLeft.seconds}
       </h1>
       <div
         className={`bg-green-32 rounded-full py-1 px-2 fade ${

@@ -135,15 +135,15 @@ const BuyEnvelopes = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
 
-    // Regex to allow up to 5 whole digits, 1 decimal point, and up to 5 decimal places
-    const regex = /^\d{0,5}(\.\d{0,5})?$/;
+    // Regex to allow only up to 5 whole digits (no decimals)
+    const regex = /^\d{0,5}$/;
 
     // Validate the input against the regex pattern
     if (regex.test(value)) {
       // Remove leading zeros (e.g., '00123' => '123')
       value = value.replace(/^0+(\d)/, "$1");
 
-      // Set the valid amount
+      // Set the valid quantity
       setQuantity(value);
     }
   };
@@ -395,7 +395,12 @@ const BuyEnvelopes = () => {
                   rem.className,
                   "ty-title leading-[120%] p-3",
                   "rounded-lg text-black-100",
-                  "bg-connect-wallet ease-out duration-300 w-full hover:opacity-75"
+                  "bg-connect-wallet ease-out duration-300 w-full ",
+                  `${
+                    quantity <= 0
+                      ? "cursor-not-allowed opacity-75"
+                      : "hover:opacity-75"
+                  }`
                 )}
               >
                 Buy {quantity} Envelopes with {tokenPayment.tokenName}
@@ -410,7 +415,7 @@ const BuyEnvelopes = () => {
                 >
                   ~426.74 USD
                 </h1>
-                {isBuy !== 0 && (
+                {referralCodeText !== "" && (
                   <h1
                     className={cn(
                       rem.className,

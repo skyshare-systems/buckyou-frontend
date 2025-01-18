@@ -12,6 +12,11 @@ interface IModal {
 const WeKnowYoureOg = ({ isOpen, setIsOpen }: IModal) => {
   const [tab, setTab] = useState(1);
 
+  function handleClose() {
+    setTab(1);
+    setIsOpen(false);
+  }
+
   if (!isOpen) return null;
   return (
     <div className="fixed top-0 left-0 w-full flex justify-center items-center bg-black-16 backdrop-blur-lg min-h-[100dvh] z-[999]">
@@ -69,7 +74,7 @@ const WeKnowYoureOg = ({ isOpen, setIsOpen }: IModal) => {
                     rem.className,
                     "ty-subtitle leading-[120%] p-3",
                     "rounded-lg  text-white-50",
-                    "hover:bg-connect-wallet hover:text-black-100 ease-out duration-300 w-full"
+                    "hover:text-white-100 ease-out duration-300 w-full"
                   )}
                 >
                   Close
@@ -124,13 +129,13 @@ const WeKnowYoureOg = ({ isOpen, setIsOpen }: IModal) => {
                   Stake $BUT
                 </button>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                   //   onClick={() => setUnopened(4)}
                   className={cn(
                     rem.className,
                     "ty-subtitle leading-[120%] p-3",
                     "rounded-lg  text-white-50",
-                    "hover:bg-connect-wallet hover:text-black-100 ease-out duration-300 w-full"
+                    "hover:text-white-100 ease-out duration-300 w-full"
                   )}
                 >
                   Skip for now
