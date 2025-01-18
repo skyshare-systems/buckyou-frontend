@@ -1,3 +1,4 @@
+"use client";
 import { useBuyEnvelope } from "@/lib/store/buy-envelope-store";
 import { cn } from "@/lib/utils";
 import { phudu } from "@/public/fonts";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import React, { useEffect, useState } from "react";
@@ -7,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { rem } from "@/public/fonts";
 import TelegramIcon from "./icon/socmed/telegram";
 import TwitterIcon from "./icon/socmed/twitter";
-import HelloThereOg from "./hello-there-og";
 import GameRules from "./game-rules";
 import { useConnectWallet } from "@/lib/store/connect-wallet-store";
 
@@ -18,6 +18,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import DisconnectIcon from "./icon/disconnect";
+import MigrateIcon from "./icon/migrate";
+import { Button } from "./ui/moving-border";
+import GiftIcon from "./icon/gift-icon";
+import WeKnowYoureOg from "./we-know-you're-og";
+import HelloThereOg from "./hello-there-og";
 
 const Navbar = () => {
   const { isConnected, setIsConnected } = useConnectWallet((state) => state);
@@ -47,6 +52,7 @@ const Navbar = () => {
     <>
       <GameRules isOpen={isShowGameRules} setIsOpen={setIsShowGameRules} />
       <HelloThereOg isOpen={isOpen} setIsOpen={setIsOpen} />
+      {/* <WeKnowYoureOg isOpen={isOpen} setIsOpen={setIsOpen} /> */}
       <div className="backdrop-blur fixed top-0 left-0 flex justify-center items-center px-4 lg:px-2 py-7 z-[9999] w-full">
         <div className="flex flex-row justify-between items-center max-w-[1440px] grow">
           <a href="/">
@@ -77,6 +83,38 @@ const Navbar = () => {
                   Game Rules
                 </h1>
               </button>
+
+              <button
+                // onClick={() => setIsShowGameRules(!isShowGameRules)}
+                className="flex flex-wrap items-center gap-2 py-2 px-3"
+              >
+                <MigrateIcon />
+                <h1
+                  className={cn(
+                    rem.className,
+                    "ty-descriptions text-white-100 leading-[120%]"
+                  )}
+                >
+                  Migrate
+                </h1>
+              </button>
+
+              <Button
+                borderRadius="999rem"
+                className={cn(
+                  "bg-[#CF303E] flex items-center gap-2 hover:opacity-75 ease-out duration-300"
+                )}
+              >
+                <GiftIcon />
+                <h1
+                  className={cn(
+                    rem.className,
+                    "ty-title text-white-100 font-medium"
+                  )}
+                >
+                  Claim
+                </h1>
+              </Button>
             </div>
             {/* <button className="rounded-lg bg-white-8 py-2 px-3 flex items-center gap-2">
               <h1
