@@ -22,16 +22,28 @@ const TableView = () => {
     <div className="flex justify-center items-start rounded-2xl border border-white-16 bg-white-4 self-stretch grow">
       <div className="flex flex-col items-start min-h-[180px] grow self-stretch">
         <div className="flex flex-col items-start min-h-[180px] grow self-stretch relative justify-between overflow-hidden">
-          <a href="https://www.bucketprotocol.io/" target="_blank">
-            <Image
-              src={"/assets/panda-ass.png"}
-              alt={"panda ass"}
-              height={143.625}
-              width={248.377}
-              className="absolute bottom-0 right-0 w-full max-w-[200px] z-[1] sm:opacity-100 opacity-50 hover:scale-105 ease-out duration-300 cursor-pointer"
-              unoptimized
-            />
-          </a>
+          <div className="absolute bottom-0 right-0">
+            <div className="relative">
+              <Image
+                src={"/assets/panda-ass.png"}
+                alt={"panda ass"}
+                height={143.625}
+                width={248.377}
+                className=" w-full max-w-[200px] z-[1] sm:opacity-100 opacity-50"
+                unoptimized
+              />
+              <a href="https://www.bucketprotocol.io/" target="_blank">
+                <Image
+                  src={"/assets/x.png"}
+                  alt={"panda ass"}
+                  height={50}
+                  width={50}
+                  className="absolute top-[20%] left-[72%] transform -translate-x-[72%] -translate-y-[20%] w-full max-w-[20px] sm:opacity-100 opacity-50  hover:scale-150 ease-out duration-300 cursor-pointer z-[22]"
+                  unoptimized
+                />
+              </a>
+            </div>
+          </div>
 
           <div className="flex items-start p-8 min-h-[133px] z-[2]">
             <h1

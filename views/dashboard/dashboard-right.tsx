@@ -30,14 +30,24 @@ const DashboardRight = () => {
           <CountdownTimer />
         </div>
       </div>
-      <Image
-        src={"/assets/panda.png"}
-        alt={"panda"}
-        height={420}
-        width={383}
-        className="absolute top-0 right-0 w-full min-w-[600px] opacity-50  md:min-w-[300px] md:max-w-[450px] lg:opacity-100"
-        unoptimized
-      />
+      <a href="#" className="group">
+        <Image
+          src={"/assets/panda-1.png"}
+          alt={"panda"}
+          height={420}
+          width={383}
+          className="absolute top-0 right-0 w-full min-w-[100px] opacity-50  md:min-w-[300px] md:max-w-[450px] lg:opacity-100"
+          unoptimized
+        />
+        <Image
+          src={"/assets/panda-2.png"}
+          alt={"panda"}
+          height={420}
+          width={383}
+          className="absolute top-0 right-0 w-full min-w-[100px] group-hover:opacity-50  md:min-w-[300px] md:max-w-[450px] lg:group-hover:opacity-100 opacity-0 z-[2] "
+          unoptimized
+        />
+      </a>
     </div>
   );
 };
